@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static "css/base.css" %}"> 
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <title>{% block title %} Document {% endblock title %}</title>
+  </head>
+  <body>
+    <nav class ="navbar navbar-dark bg-primary navbar-expand-lg">
+      <div class="container">
+        <a href="" class="navbar-brand">Blogapp</a>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+              <a href="" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">Blogs</a>
+        </li>
+        </ul>
+        
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-3">
+          <div class="list-group">
+            <a href="" class="list-group-item list-group-item-action">Programlama</a>
+            <a href="" class="list-group-item list-group-item-action">Web Programlama</a>
+            <a href="" class="list-group-item list-group-item-action">Mobil Uygulamalar</a>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="card mb-3">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="{% static "img/1.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h5 class="card-title">Komple Web Gelistirme Kursu</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia expedita unde amet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card mb-3">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="{% static "img/2.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h5 class="card-title">Komple Web Gelistirme Kursu</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia expedita unde amet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-3">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="{% static "img/3.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h5 class="card-title">Komple Web Gelistirme Kursu</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia expedita unde amet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-3">
+            <div class="row">
+              <div class="col-md-3">
+                <img src="{% static "img/4.jpg" %}" alt="" class="img-fluid">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h5 class="card-title">Komple Web Gelistirme Kursu</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia expedita unde amet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% block content %} {% endblock content %}
+
+    
+
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/base.js" %}"></script>
+    {% block js_files %}{% endblock js_files %}
+  </body>
+</html>
