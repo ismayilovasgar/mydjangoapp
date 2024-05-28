@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from myapp.models import Blog
 
 # Create your views here.
 data = {
@@ -34,7 +35,9 @@ data = {
 
 def index(request):
     context = {
-        "blogs": data["blogs"],
+        # "blogs": data["blogs"],
+        # "blogs": Blog.objects.all(),
+        "blogs": Blog.objects.filter(is_home=True, is_active=True),
     }
     # return HttpResponse("home page")
     return render(request, "blog/index.html", context)
@@ -42,7 +45,9 @@ def index(request):
 
 def blogs(request):
     context = {
-        "blogs": data["blogs"],
+        # "blogs": data["blogs"],
+        # "blogs": Blog.objects.all(),
+        "blogs": Blog.objects.filter(is_active=True),
     }
     return render(request, "blog/blogs.html", context)
 
@@ -50,10 +55,12 @@ def blogs(request):
 def blog_details(request, id):
     # return HttpResponse("blog details:" + str(id))
     # return HttpResponse(f"blog details: {id}")
-    blogs = data["blogs"]
+    # blogs = data["blogs"]
     # selectedBlog = None
     # for blog in blogs:
     #     if blog["id"] == id:
     #         selectedBlog = blog
-    selectedBlog = [blog for blog in blogs if blog["id"] == id][0]
-    return render(request, "blog/blog_details.html", {"blog": selectedBlog})
+    # selectedBlog = [blog for blog in blogs if blog["id"] == id][0]
+    blog = Blog.objects.get(id=id)
+    # return render(request, "blog/blog_details.html", {"blog": selectedBlog})
+    return render(request, "blog/blog_details.html", {"blog": blog})
