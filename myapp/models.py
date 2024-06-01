@@ -9,8 +9,8 @@ class Blog(models.Model):
     is_active = models.BooleanField()
     is_home = models.BooleanField()
 
-    # def __str__(self) -> str:
-    #     return "hello it is me"
+    def __str__(self):
+        return f"{self.title}"
 
 
 class Category(models.Model):
