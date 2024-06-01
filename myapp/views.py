@@ -52,7 +52,7 @@ def blogs(request):
     return render(request, "blog/blogs.html", context)
 
 
-def blog_details(request, id):
+def blog_details(request, slug):
     # return HttpResponse("blog details:" + str(id))
     # return HttpResponse(f"blog details: {id}")
     # blogs = data["blogs"]
@@ -61,6 +61,6 @@ def blog_details(request, id):
     #     if blog["id"] == id:
     #         selectedBlog = blog
     # selectedBlog = [blog for blog in blogs if blog["id"] == id][0]
-    blog = Blog.objects.get(id=id)
+    blog = Blog.objects.get(slug=slug)
     # return render(request, "blog/blog_details.html", {"blog": selectedBlog})
     return render(request, "blog/blog_details.html", {"blog": blog})

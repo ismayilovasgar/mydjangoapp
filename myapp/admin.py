@@ -28,7 +28,6 @@ class BlogAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
-        "id",
         "name",
         "slug",
     )
