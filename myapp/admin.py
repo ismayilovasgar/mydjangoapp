@@ -6,9 +6,11 @@ from .models import *
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = (
+        "id",
         "title",
         "is_active",
         "is_home",
+        "slug",
     )
     list_editable = (
         "is_active",
@@ -20,8 +22,20 @@ class BlogAdmin(admin.ModelAdmin):
         "description",
     )
 
-    readonly_fields = ("description",)
+    # readonly_fields = ("description",)
+    readonly_fields = ("slug",)
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "name",
+        "slug",
+    )
+
+    readonly_fields = ("name",)
+    search_fields = ("name",)
 
 
 admin.site.register(Blog, BlogAdmin)
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)
