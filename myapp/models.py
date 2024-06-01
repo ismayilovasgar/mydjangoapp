@@ -15,3 +15,6 @@ class Blog(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=150)
+
+    def __str__(self) -> str:
+        return f"{self.name}"
