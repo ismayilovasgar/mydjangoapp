@@ -26,8 +26,8 @@ class Blog(models.Model):
     title = models.CharField(max_length=30)
     # image = models.CharField(max_length=30)
     image = models.ImageField(upload_to="blogs")
-    # description = models.TextField()
-    description = RichTextField()
+    description = models.TextField()
+    # description = RichTextField()
     is_active = models.BooleanField()
     is_home = models.BooleanField()
     slug = models.SlugField(
@@ -37,7 +37,9 @@ class Blog(models.Model):
         db_index=True,
         editable=False,
     )
-    category_id = models.ForeignKey(Category, on_delete=models.CASCADE) # category silinse blogda silinecek
+    category_id = models.ForeignKey(
+        Category, on_delete=models.CASCADE
+    )  # category silinse blogda silinecek
     # category_id = models.ForeignKey(Category, null=True,on_delete=models.SET_NULL) # category-e aid blog-a Null deyeri menimsedilecek
 
     def __str__(self) -> str:
