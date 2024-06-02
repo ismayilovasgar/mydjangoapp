@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from myapp.models import Blog
+from myapp.models import Blog, Category
 
 # Create your views here.
 data = {
@@ -38,6 +38,7 @@ def index(request):
         # "blogs": data["blogs"],
         # "blogs": Blog.objects.all(),
         "blogs": Blog.objects.filter(is_home=True, is_active=True),
+        "categories": Category.objects.all(),
     }
     # return HttpResponse("home page")
     return render(request, "blog/index.html", context)
@@ -48,6 +49,7 @@ def blogs(request):
         # "blogs": data["blogs"],
         # "blogs": Blog.objects.all(),
         "blogs": Blog.objects.filter(is_active=True),
+        "categories": Category.objects.all(),
     }
     return render(request, "blog/blogs.html", context)
 
@@ -64,3 +66,7 @@ def blog_details(request, slug):
     blog = Blog.objects.get(slug=slug)
     # return render(request, "blog/blog_details.html", {"blog": selectedBlog})
     return render(request, "blog/blog_details.html", {"blog": blog})
+
+
+def blogs_by_category(request, slug):
+    pass
