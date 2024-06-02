@@ -6,7 +6,7 @@ from .models import *
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = (
-        "id",
+        # "id",
         "title",
         "is_active",
         "is_home",
