@@ -11,6 +11,7 @@ class BlogAdmin(admin.ModelAdmin):
         "is_active",
         "is_home",
         "slug",
+        "category_id",
     )
     list_editable = (
         "is_active",
