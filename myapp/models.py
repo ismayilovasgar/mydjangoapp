@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 
 
 # Create your models here.
@@ -7,7 +8,8 @@ class Blog(models.Model):
     title = models.CharField(max_length=30)
     # image = models.CharField(max_length=30)
     image = models.ImageField(upload_to="blogs")
-    description = models.TextField()
+    # description = models.TextField()
+    description = RichTextField()
     is_active = models.BooleanField()
     is_home = models.BooleanField()
     slug = models.SlugField(

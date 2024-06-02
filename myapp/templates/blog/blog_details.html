@@ -5,10 +5,10 @@
 
 <div class="container mt-3">
   <div class="row">
-    <div class="col-3">
+    {% comment %} <div class="col-3">
         {% include "partials/_categories.html" %}
-    </div>
-    <div class="col-9">
+    </div> {% endcomment %}
+    <div class="col-12">
       {% comment %} <h1>Blog Details :{{id}}</h1> {% endcomment %}
       <div class="card mb-3">
         <div class="row">
@@ -24,7 +24,7 @@
                 </a>
               </h5>
               <p class="card-text">
-                {{blog.description}}
+                {{blog.description|safe}}
                 {% comment %} {%lorem 30 w %} {% endcomment %}
               </p>
             </div>
