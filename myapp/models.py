@@ -5,7 +5,8 @@ from django.utils.text import slugify
 # Create your models here.
 class Blog(models.Model):
     title = models.CharField(max_length=30)
-    image = models.CharField(max_length=30)
+    # image = models.CharField(max_length=30)
+    image = models.ImageField(upload_to="blogs")
     description = models.TextField()
     is_active = models.BooleanField()
     is_home = models.BooleanField()
