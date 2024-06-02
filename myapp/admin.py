@@ -25,6 +25,7 @@ class BlogAdmin(admin.ModelAdmin):
 
     # readonly_fields = ("description",)
     readonly_fields = ("slug",)
+    list_filter = ("category_id", "is_active")
 
 
 class CategoryAdmin(admin.ModelAdmin):
