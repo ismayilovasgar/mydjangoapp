@@ -12,6 +12,7 @@ class Category(models.Model):
         db_index=True,
         editable=False,
     )
+    # blogs = models.ManyToManyField(Blog)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -37,10 +38,12 @@ class Blog(models.Model):
         db_index=True,
         editable=False,
     )
-    category_id = models.ForeignKey(
-        Category, on_delete=models.CASCADE
-    )  # category silinse blogda silinecek
+    # ManyToOne
+    # category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
     # category_id = models.ForeignKey(Category, null=True,on_delete=models.SET_NULL) # category-e aid blog-a Null deyeri menimsedilecek
+
+    # ManyToMany
+    categories = models.ManyToManyField(Category, blank=True)
 
     def __str__(self) -> str:
         return f"{self.title}"
