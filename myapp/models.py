@@ -37,7 +37,7 @@ class Blog(models.Model):
         db_index=True,
         editable=False,
     )
-    category_id = models.ForeignKey(Category, default=1,on_delete=models.CASCADE) # category silinse blogda silinecek
+    category_id = models.ForeignKey(Category, on_delete=models.CASCADE) # category silinse blogda silinecek
     # category_id = models.ForeignKey(Category, null=True,on_delete=models.SET_NULL) # category-e aid blog-a Null deyeri menimsedilecek
 
     def __str__(self) -> str:
