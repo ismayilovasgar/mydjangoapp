@@ -1,6 +1,7 @@
 <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
   <div class="container">
     <a href="{% url "home" %}" class="navbar-brand">Blogapp</a>
+
     <ul class="navbar-nav me-auto">
       <li class="nav-item">
         <a href="{% url "home" %}" class="nav-link">Home</a>
@@ -8,6 +9,24 @@
       <li class="nav-item">
         <a href="{% url "blogs" %}" class="nav-link">Blogs</a>
       </li>
+    </ul>
+
+    <ul class="navbar-nav ms-auto">
+      {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'account:logout' %}" class="nav-link">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'account:dashboard' %}" class="nav-link">Welcome</a>
+          </li>
+      {% else %}
+          <li class="nav-item">
+            <a href="{% url 'account:login' %}" class="nav-link">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'account:register' %}" class="nav-link">Register</a>
+          </li>
+      {% endif %}
     </ul>
   </div>
 </nav>
