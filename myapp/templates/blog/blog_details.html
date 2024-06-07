@@ -12,17 +12,18 @@
       {% comment %} <h1>Blog Details :{{id}}</h1> {% endcomment %}
       <div class="card mb-3">
         <div class="row">
-          <div class="col-md-3">
+          {% comment %} <div class="col-md-3"> {% endcomment %}
             {% comment %} <img src="{% static 'img/'|add:blog.image %}" alt="" class="img-fluid"> {% endcomment %}
-            <img src="{{blog.image.url}}" alt="" class="img-fluid">
-          </div>
-          <div class="col-md-9">
+          {% comment %} </div> {% endcomment %}
+          <div class="col-md-12">
             <div class="card-body">
-              <h5 class="card-title">
+              <h1 class="card-title h3 mb-3">
                 <a href="{% url 'blog_details' blog.slug %}">
-                  {{blog.title}}
+                  {{blog.title|title}}
                 </a>
-              </h5>
+              </h1>
+              <img src="{{blog.image.url}}" alt="" class="img-fluid" style="float:left;margin: 0 20px 20px 0">
+
               <p class="card-text">
                 {{blog.description|safe}}
                 {% comment %} {%lorem 30 w %} {% endcomment %}
